@@ -5,3 +5,4 @@ my_name = input("¿Cuál es tu nombre?")
 # Imprimir el nombre almacenado en la variable
 
 print(f"El nombre es: {my_name}")
+

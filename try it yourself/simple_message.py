@@ -3,3 +3,5 @@
 message = "Esto es un mensaje de prueba"
 
 print(message)
+
+# Puede ser con 3 comillas
