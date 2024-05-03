@@ -73,7 +73,7 @@ print(lst)
 
 # 6. Use *= as you want
 my_list = [1, 2, 3]
-my_list *= 2    #No significa que se van a multiplocar, solo se repetiran ese numero de veces, despues del último objeto
+my_list *= 2    #No significa que se van a multiplicar, solo se repetiran ese numero de veces, despues del último objeto
 print(my_list)
 
 

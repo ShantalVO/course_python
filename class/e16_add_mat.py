@@ -18,4 +18,22 @@ Try to solve this exercise without using any third-party libraries (without usin
 
 """
 
+def add(matrix1, matrix2):
+    result = []
+    for i in range(len(matrix1)):
+        row = []
+        for j in range(len(matrix1[0])):
+            row.append(matrix1[i][j] + matrix2[i][j])
+        result.append(row)
+    return result
+
+# Example usage
+matrix1 = [[1, -2], [-3, 4]]
+matrix2 = [[2, -1], [0, -1]]
+print(add(matrix1, matrix2))
+
+matrix1 = [[1, -2, 3], [-4, 5, -6], [7, -8, 9]]
+matrix2 = [[1, 1, 0], [1, -2, 3], [-2, 2, -2]]
+print(add(matrix1, matrix2))
+
 

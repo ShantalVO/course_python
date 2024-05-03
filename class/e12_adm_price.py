@@ -9,3 +9,30 @@ The user will enter a blank line to indicate that there are no more guests in th
 Then your program should display the admission cost for the group with an appropriate message.
 """
 
+
+def calculate_admission(age):
+    if age <= 2:
+        return 0
+    elif 3 <= age <= 12:
+        return 14.00
+    elif age >= 65:
+        return 18.00
+    else:
+        return 23.00
+
+
+def main():
+    total_cost = 0
+    while True:
+        age_input = input("Ingrese la edad del huesped o deje en blanco para terminar: ")
+        if age_input == "":
+            break
+        age = int(age_input)
+        cost = calculate_admission(age)
+        total_cost += cost
+
+    print("El costo total de admisión para el grupo es: ${:.2f}".format(total_cost))   #.2 dos decimales, f = número decimal
+
+
+if __name__ == "__main__":
+    main()
