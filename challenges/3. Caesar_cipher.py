@@ -12,24 +12,66 @@ ldl ndj zcdl wdl id iwxcz ndj wpkt xbegdkts ndjg eniwdc hzxaah rdcvgpijapixdch
 
 letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
            's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+#
+# def caesar_cipher(message, shift):
+#     encrypted_message = ""
+#     for char in message:
+#         if char.isalpha():
+#             if char.islower():
+#                 index = (ord(char) - ord('a') + shift) % 26
+#                 encrypted_char = chr(ord('a') + index)
+#             else:
+#                 index = (ord(char) - ord('A') + shift) % 26
+#                 encrypted_char = chr(ord('A') + index)
+#         else:
+#             encrypted_char = char
+#         encrypted_message += encrypted_char
+#     return encrypted_message
+#
+# message = input("Ingresa un mensaje para codificar o decodificar: ")
+# shift = int(input("Ingrese la cantidad del turno (positiva para codificar, negativa para decodificar): "))
+#
+#
+# encrypted_message = caesar_cipher(message, shift)
+# print("Mensaje codificado o decodificado", encrypted_message)
 
 def caesar_cipher(message, shift):
-    encrypted_message = ""
+    result = ''
     for char in message:
-        if char.isalpha():
-            if char.islower():
-                index = (ord(char) - ord('a') + shift) % 26
-                encrypted_char = chr(ord('a') + index)
+        if char.isalpha():  # Check if character is an alphabet letter
+            # Determine if the character is uppercase or lowercase
+            if char.isupper():
+                shifted_char = chr((ord(char) - 65 + shift) % 26 + 65)  # Shift uppercase letters
             else:
-                index = (ord(char) - ord('A') + shift) % 26
-                encrypted_char = chr(ord('A') + index)
+                shifted_char = chr((ord(char) - 97 + shift) % 26 + 97)  # Shift lowercase letters
+            result += shifted_char
         else:
-            encrypted_char = char
-        encrypted_message += encrypted_char
-    return encrypted_message
+            result += char  # Keep non-alphabetic characters unchanged
+    return result
 
-message = input("Ingresa un mensaje para codificar o decodificar: ")
-shift = int(input("Ingrese la cantidad delturno (positiva para codificar, negativa para decodificar): "))
+def decrypt_caesar(message):
+    possible_messages = []
+    for shift in range(100):
+        decrypted_message = caesar_cipher(message, -shift)
+        possible_messages.append(decrypted_message)
+    return possible_messages
 
-encrypted_message = caesar_cipher(message, shift)
-print("Mensaje codificado o decodificado", encrypted_message)
+letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
+           's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
+def main():
+    mode = input("Enter 'encrypt' or 'decrypt': ")
+    if mode.lower() == 'encrypt':
+        message = input("Enter the message to encrypt: ")
+        shift = int(input("Enter the shift amount: "))
+        encrypted_message = caesar_cipher(message, shift)
+        print("Encrypted message:", encrypted_message)
+    elif mode.lower() == 'decrypt':
+        message = input("Enter the message to decrypt: ")
+        possible_messages = decrypt_caesar(message)
+        print("Possible decrypted messages:")
+        for i, decrypted_message in enumerate(possible_messages):
+            print(f"Shift {i}: {decrypted_message}")
+
+if __name__ == "__main__":
+    main()

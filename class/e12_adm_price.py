@@ -36,3 +36,24 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# _________________________________________________________________________________________________________________
+# OTRA FORMA
+
+# cost = 0
+#
+# while True:
+#     age = input('Enter the age: ')
+#     if age == '':
+#         break
+#     age = int(age)
+#     if age <= 2:
+#         continue
+#     elif 3 <= age <= 12:
+#         cost +=14
+#     elif age >= 65:
+#         cost += 18
+#     else:
+#         cost += 23
+#
+# print(cost)

@@ -18,13 +18,6 @@ print("La suma del producto de los valores es:", product_sum)
 
 # Calculate the GCD of two numbers that user gives
 num1 = int(input("Ingrese el primer número: "))
-
-
-
-
-
-
-
 num2 = int(input("Ingrese el segundo número: "))
 gcd = math.gcd(num1, num2)
 print("El máximo común divisor de", num1, "y", num2, "es:", gcd)
